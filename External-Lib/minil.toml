@@ -1,0 +1,4 @@
+name = "External-Lib"
+authority = "cpan:SKAJI"
+[build]
+build_class = "builder::MyBuilder"

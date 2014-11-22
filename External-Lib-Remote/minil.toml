@@ -1,0 +1,4 @@
+name = "External-Lib-Remote"
+authority = "cpan:SKAJI"
+[build]
+build_class = "builder::MyBuilder"
