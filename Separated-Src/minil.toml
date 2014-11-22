@@ -1,3 +1,2 @@
 name = "Separated-Src"
-[build]
-build_class = "builder::MyBuilder"
+c_source = ["src"]

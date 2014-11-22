@@ -17,29 +17,11 @@ Let's say you have `.c` and `.h` files in `src/` directory:
     > vim src/add.h src/add.c
     ...
 
-To build files in `src/` files,
-we have to modify `minil.toml` and create `builder/MyBuidler.pm`:
+To build files in `src/` files, we have to modify `minil.toml`:
 ```
 name = "Separated-Src"
-[build]
-build_class = "builder::MyBuilder"
+c_source = ["src"]
 ```
-```perl
-package builder::MyBuilder;
-use strict;
-use warnings;
-use parent 'Module::Build';
-sub new {
-    my ($class, %arg) = @_;
-    $class->SUPER::new(
-        %arg,
-        c_source => ["src"],
-    );
-}
-1;
-```
-
-Once we prepare those, we can develop modules with `minil` command.
 
 ### Case3. External libraries
 
@@ -53,10 +35,15 @@ Let's say you want to link an external library with your xs module.
 
 Note that the external library has own `Makefile`.
 To build external library with its own `Makefile` and link it,
-we create the following `builder/MyBuidler.pm`:
+we modify `minil.toml` and create `builder/MyBuidler.pm`:
 
+```
+name = "External-Lib"
+[build]
+build_class = "builder::MyBuilder"
+```
 ```perl
-ckage builder::MyBuilder;
+package builder::MyBuilder;
 use strict;
 use warnings;
 
