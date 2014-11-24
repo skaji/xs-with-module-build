@@ -1,5 +1,7 @@
 This repo shows how to develop xs module with Module::Build / Minilla.
 
+See also https://metacpan.org/pod/Module::Build::XSUtil
+
 ### Case1. Basic
 
 This is very basic, one `.xs` file. Just type:
@@ -91,5 +93,20 @@ sub ACTION_code {
     }
     run $make, qw(-C c-test libadd.a);
     $self->SUPER::ACTION_code(@_);
+}
+```
+
+### Case5. C++
+
+If you write c++ code, then `builder/MyBuilder.pm` looks like:
+
+```perl
+sub new {
+    my $class = shift;
+    $class->SUPER::new(
+        extra_compiler_flags => ["-xc++"],
+        extra_linker_flags => ["-lstdc++"],
+        @_,
+    );
 }
 ```
