@@ -1,3 +1,16 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Case1. Basic](#case1-basic)
+- [Case2. Separated source files](#case2-separated-source-files)
+- [Case3. External libraries](#case3-external-libraries)
+- [Case4. External libraries in remote](#case4-external-libraries-in-remote)
+- [Case5. C++](#case5-c)
+- [Case6. C++ + class](#case6-c--class)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 This repo shows how to develop xs module with Module::Build / Minilla.
 
 See also https://metacpan.org/pod/Module::Build::XSUtil
@@ -110,3 +123,7 @@ sub new {
     );
 }
 ```
+
+### Case6. C++ + class
+
+See CPP-Person directory.

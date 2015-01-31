@@ -1,0 +1,5 @@
+name = "CPP-Person"
+c_source = ['cpp']
+
+[XSUtil]
+needs_compiler_cpp = 1

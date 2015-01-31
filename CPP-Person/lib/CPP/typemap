@@ -1,0 +1,29 @@
+# from ExtUtils::Typemaps::STL::String
+
+TYPEMAP
+string   T_STD_STRING
+Person*  O_OBJECT
+
+INPUT
+T_STD_STRING
+  {
+    size_t len;
+    const char * c = SvPV($arg, len);
+    $var = string(c, len);
+  }
+
+O_OBJECT
+  if (SvROK($arg)) {
+    $var = ($type)SvIV((SV*)SvRV( $arg ));
+  } else {
+    warn( \"${Package}::$func_name() -- $var is not an SV reference\" );
+    XSRETURN_UNDEF;
+  }
+
+
+OUTPUT
+T_STD_STRING
+  $arg = newSVpvn( $var.c_str(), $var.length() );
+
+O_OBJECT
+  sv_setref_pv( $arg, CLASS, (void*)$var );
