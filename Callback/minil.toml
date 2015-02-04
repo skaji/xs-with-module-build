@@ -1,0 +1,6 @@
+name = "Callback"
+# badges = ["travis"]
+authority="cpan:SKAJI"
+
+module_maker="ModuleBuildTiny"
+
